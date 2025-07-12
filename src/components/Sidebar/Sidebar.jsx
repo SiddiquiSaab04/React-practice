@@ -4,7 +4,7 @@ export default function Sidebar({ isSidebarOpen }) {
 
     return (
         isSidebarOpen && (
-            <div className='min-h-screen w-64 flex flex-col justify-between items-center space-y-4 py-6 bg-pink-300'>
+            <aside className='h-full w-64 flex flex-col justify-start items-center space-y-4 py-6 bg-pink-300'>
                 <div>
                     <p>Logo</p>
                 </div>
@@ -16,7 +16,7 @@ export default function Sidebar({ isSidebarOpen }) {
                         <li>Settings</li>
                     </ul>
                 </div>
-            </div>
+            </aside>
         )
 
     )
