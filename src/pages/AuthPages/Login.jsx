@@ -25,20 +25,15 @@ function LoginForm() {
       const response = await axios.post('https://dummyjson.com/auth/login', {
         username: data.username,
         password: data.password,
-          headers:{
-         'Content-type':'application/json'
+        headers: {
+          'Content-type': 'application/json'
         },
       })
       console.log("Login Successfully");
-              sessionStorage.setItem("token",response.token.data);
-      const token = sessionStorage.getItem("token");
-      if(!token)
-      {navigate('/login')}
-      else{
-        navigate('/')
-      }
-      }
-    
+      sessionStorage.setItem("token", response.data.token);
+      navigate('/')
+    }
+
 
     catch (error) {
       console.error(error)

@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Login from './pages/AuthPages/Login';
+import ProtectedRoute from './components/protected-Route/ProtectedRoute';
 
 function App() {
       const [like,setLike] = useState(0);
@@ -33,12 +34,15 @@ function App() {
    {/* Routing */}
    
   <Routes>
-    <Route path='/' element={<Login/>} />
-    <Route path='/' element={<DashboardLayout/>} >
+    <Route path='/login' element={<Login/>} />
+    <Route element={<ProtectedRoute/>}>
+  <Route path='/' element={<DashboardLayout/>} >
     <Route index element={<Home/>} />
        <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
     </Route>
+    </Route>
+  
   </Routes>
 
     </>
