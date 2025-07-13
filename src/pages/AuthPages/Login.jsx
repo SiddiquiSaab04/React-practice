@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import authStore from "../../store/Auth";
 
 const schema = yup.object().shape({
   username: yup.string().required("username is required"),
@@ -11,6 +12,7 @@ const schema = yup.object().shape({
 });
 
 function LoginForm() {
+  const login = authStore((state) => state.login)
   const navigate = useNavigate();
   const {
     register,
@@ -25,16 +27,20 @@ function LoginForm() {
       const response = await axios.post('https://dummyjson.com/auth/login', {
         username: data.username,
         password: data.password,
+      }, {
         headers: {
           'Content-type': 'application/json'
-        },
+        }
       })
       console.log("Login Successfully");
-      sessionStorage.setItem("token", response.data.token);
+      console.log(response.data);      
+      const { accessToken,...userData } = response.data;
+      console.log(accessToken);
+      
+      login(userData, accessToken)
       navigate('/')
+
     }
-
-
     catch (error) {
       console.error(error)
     }

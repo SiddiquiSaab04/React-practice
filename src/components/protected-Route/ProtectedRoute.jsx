@@ -1,8 +1,9 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
+import authStore from '../../store/Auth';
 
 const ProtectedRoute = () => {
-    const token = sessionStorage.getItem("token");
+    const token = authStore((state)=>state.token);
     if(!token){
       return  <Navigate to="/login" />
     }
