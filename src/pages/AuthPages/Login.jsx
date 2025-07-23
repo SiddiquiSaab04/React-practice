@@ -21,7 +21,6 @@ function LoginForm() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
   async function onSubmit(data) {
     try {
       const response = await axios.post('https://dummyjson.com/auth/login', {

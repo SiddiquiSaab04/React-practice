@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import MenuItems from './MenuItems'
+import { Link, NavLink } from 'react-router-dom'
+import Hello from '../Buttons/Hello'
 
 export default function Sidebar({ isSidebarOpen }) {
+
 
     return (
         isSidebarOpen && (
@@ -9,13 +13,18 @@ export default function Sidebar({ isSidebarOpen }) {
                     <p>Logo</p>
                 </div>
                 <div>
+
                     <ul className='space-y-5'>
-                        <li>Home</li>
-                        <li>Jobs</li>
-                        <li>Candidates</li>
-                        <li>Settings</li>
+                        {
+                            MenuItems.map((e) => (
+                                <li ><NavLink to={e.path} className={({ isActive }) => `flex gap-x-2 ${isActive ? "bg-blue-400 text-white" : "bg-green-400"} `} >  <span>{e.icon}</span>{e.name}
+                                </NavLink>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
+                <Hello title="Open"/>
             </aside>
         )
 
