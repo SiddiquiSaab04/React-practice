@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Login from './pages/AuthPages/Login';
 import ProtectedRoute from './components/protected-Route/ProtectedRoute';
+import SearchBar from './components/searchbar/SearchBar';
 
 function App() {
       const [like,setLike] = useState(0);
@@ -40,6 +41,7 @@ function App() {
     <Route index element={<Home/>} />
        <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path='search' element={<SearchBar/>}/>
     </Route>
     </Route>
   
