@@ -1,4 +1,4 @@
-import { LayoutDashboard, Settings, Users } from 'lucide-react';
+import { LayoutDashboard, Search, Settings, Users } from 'lucide-react';
 import React from 'react'
 const MenuItems = [
   {
@@ -16,6 +16,11 @@ const MenuItems = [
     name: 'Settings',
     icon: <Settings />,
     path: '/contact'
+  },
+    {
+    name: 'Search',
+    icon: <Search />,
+    path: '/search'
 
   },
 

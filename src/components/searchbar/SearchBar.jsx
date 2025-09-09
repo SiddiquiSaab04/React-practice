@@ -33,7 +33,6 @@ function SearchBar() {
     setQuery(value);
     debounceSearch(value);
   };
-
   return (
     <div>
       <input
